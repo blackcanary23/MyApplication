@@ -1,9 +1,11 @@
-package com.example.dd.retrofit2;
+package com.example.dd.retrofit2.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
+import com.example.dd.retrofit2.model.AndroidVersion;
+import com.example.dd.retrofit2.R;
 
 
 public class DisplayActivity extends AppCompatActivity  {

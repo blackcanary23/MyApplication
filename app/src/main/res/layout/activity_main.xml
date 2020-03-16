@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
     <fragment
         android:id="@+id/listFrag"
-        android:name="com.example.dd.retrofit2.ListFrag"
+        android:name="com.example.dd.retrofit2.fragments.ListFrag"
         android:layout_width="411dp"
         android:layout_height="746dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -25,7 +25,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/listFrag"
         app:layout_constraintTop_toTopOf="parent">
-
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

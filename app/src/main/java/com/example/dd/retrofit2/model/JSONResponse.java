@@ -1,4 +1,4 @@
-package com.example.dd.retrofit2;
+package com.example.dd.retrofit2.model;
 
 
 public class JSONResponse {

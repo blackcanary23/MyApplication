@@ -1,6 +1,7 @@
-package com.example.dd.retrofit2;
+package com.example.dd.retrofit2.model;
 
 import java.io.Serializable;
+
 
 public class AndroidVersion implements Serializable {
 

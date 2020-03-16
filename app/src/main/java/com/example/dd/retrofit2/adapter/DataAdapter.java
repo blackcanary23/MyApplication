@@ -1,4 +1,4 @@
-package com.example.dd.retrofit2;
+package com.example.dd.retrofit2.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import com.example.dd.retrofit2.model.AndroidVersion;
+import com.example.dd.retrofit2.R;
 import java.util.ArrayList;
 
 
@@ -45,6 +47,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
     public int getItemCount() {
         return android.size();
     }
+
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView tv_name;
