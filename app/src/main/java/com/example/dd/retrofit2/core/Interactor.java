@@ -1,6 +1,6 @@
 package com.example.dd.retrofit2.core;
 
-import android.content.Context;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import com.example.dd.retrofit2.model.AndroidVersion;
 import com.example.dd.retrofit2.model.JSONResponse;
@@ -14,16 +14,18 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 
-public class Intractor implements GetDataContract.Interactor{
-    private GetDataContract.onGetDataListener mOnGetDatalistener;
-    private ArrayList<AndroidVersion> data;
+public class Interactor implements GetDataContract.Interactor{
 
-    public Intractor(GetDataContract.onGetDataListener mOnGetDatalistener){
+    private GetDataContract.onGetDataListener mOnGetDatalistener;
+
+    Interactor(GetDataContract.onGetDataListener mOnGetDatalistener){
+
         this.mOnGetDatalistener = mOnGetDatalistener;
     }
 
     @Override
-    public void initRetrofitCall(Context context, String url) {
+    public void initRetrofitCall() {
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://gist.githubusercontent.com")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -31,16 +33,19 @@ public class Intractor implements GetDataContract.Interactor{
         RequestInterface request = retrofit.create(RequestInterface.class);
         Call<JSONResponse> call = request.getJSON();
         call.enqueue(new Callback<JSONResponse>() {
+
             @Override
-            public void onResponse(Call<JSONResponse> call, Response<JSONResponse> response) {
+            public void onResponse(@NonNull Call<JSONResponse> call, @NonNull Response<JSONResponse> response) {
 
                 JSONResponse jsonResponse = response.body();
-                data = new ArrayList<>(Arrays.asList(jsonResponse.getAndroid()));
+                assert jsonResponse != null;
+                ArrayList<AndroidVersion> data = new ArrayList<>(Arrays.asList(jsonResponse.getAndroid()));
                 mOnGetDatalistener.onSuccess("List Size: " + data.size(), data);
             }
 
             @Override
-            public void onFailure(Call<JSONResponse> call, Throwable t) {
+            public void onFailure(@NonNull Call<JSONResponse> call, @NonNull Throwable t) {
+
                 Log.d("Error",t.getMessage());
                 mOnGetDatalistener.onFailure(t.getMessage());
             }

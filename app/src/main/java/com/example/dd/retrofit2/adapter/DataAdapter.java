@@ -15,10 +15,10 @@ import java.util.ArrayList;
 public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
 
     private ArrayList<AndroidVersion> android;
-    ItemClicked activity;
+    private ItemClicked activity;
 
-    public interface ItemClicked
-    {
+    public interface ItemClicked {
+
         void onItemClicked(AndroidVersion androidVersion);
     }
 
@@ -31,6 +31,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
     @NonNull
     @Override
     public DataAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_layout, parent, false);
         return new ViewHolder(view);
     }
@@ -45,23 +46,23 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
+
         return android.size();
     }
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView tv_name;
-        private TextView tv_version;
-        private TextView tv_api_level;
+    class ViewHolder extends RecyclerView.ViewHolder {
 
-        public ViewHolder(@NonNull View itemView) {
+        private TextView tv_name;
+
+        ViewHolder(@NonNull View itemView) {
+
             super(itemView);
 
-            tv_name = (TextView)itemView.findViewById(R.id.tv_name);
-            tv_version = (TextView)itemView.findViewById(R.id.tv_version);
-            tv_api_level = (TextView)itemView.findViewById(R.id.tv_api_level);
+            tv_name = itemView.findViewById(R.id.tv_name);
 
             itemView.setOnClickListener(new View.OnClickListener() {
+
                 @Override
                 public void onClick(View view) {
 

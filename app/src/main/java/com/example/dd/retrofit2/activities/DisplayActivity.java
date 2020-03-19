@@ -10,16 +10,15 @@ import com.example.dd.retrofit2.R;
 
 public class DisplayActivity extends AppCompatActivity  {
 
-    TextView tv_name, tv_version, tv_api_level;
-
     @Override
     protected void onCreate(Bundle saveInstanceState){
+
         super.onCreate(saveInstanceState);
         setContentView(R.layout.fragment_detail);
 
-        tv_name = findViewById(R.id.tv_name);
-        tv_version = findViewById(R.id.tv_version);
-        tv_api_level = findViewById(R.id.tv_api_level);
+        TextView tv_name = findViewById(R.id.tv_name);
+        TextView tv_version = findViewById(R.id.tv_version);
+        TextView tv_api_level = findViewById(R.id.tv_api_level);
 
         Intent intent = getIntent();
 

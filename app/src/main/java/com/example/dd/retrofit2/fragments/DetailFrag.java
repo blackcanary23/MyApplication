@@ -10,14 +10,8 @@ import com.example.dd.retrofit2.R;
 
 public class DetailFrag extends Fragment {
 
-    public DetailFrag() {
-
-    }
-
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         return inflater.inflate(R.layout.fragment_detail, container, false);
     }

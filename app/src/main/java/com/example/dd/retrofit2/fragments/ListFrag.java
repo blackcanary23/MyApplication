@@ -19,19 +19,11 @@ import java.util.ArrayList;
 
 public class ListFrag extends Fragment implements GetDataContract.View {
 
-    private Presenter mPresenter;
-    RecyclerView recyclerView;
-    RecyclerView.Adapter myAdapter;
-    RecyclerView.LayoutManager layoutManager;
-    View view;
-
-    public ListFrag() {
-
-    }
+    private RecyclerView recyclerView;
+    private View view;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.fragment_list, container, false);
 
@@ -40,13 +32,14 @@ public class ListFrag extends Fragment implements GetDataContract.View {
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+
         super.onActivityCreated(savedInstanceState);
 
-        mPresenter = new Presenter(this);
-        mPresenter.getDataFromURL(this.getActivity(), "");
+        Presenter mPresenter = new Presenter(this);
+        mPresenter.getDataFromURL(this.getActivity());
 
         recyclerView = view.findViewById(R.id.list);
-        layoutManager = new LinearLayoutManager(this.getActivity());
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getActivity());
         recyclerView.setLayoutManager(layoutManager);
 
     }
@@ -54,13 +47,15 @@ public class ListFrag extends Fragment implements GetDataContract.View {
 
     @Override
     public void onGetDataSuccess(String message,  ArrayList<AndroidVersion> data) {
-        myAdapter = new DataAdapter(getActivity(), data);
+
+        RecyclerView.Adapter myAdapter = new DataAdapter(getActivity(), data);
         recyclerView.setAdapter(myAdapter);
 
     }
 
     @Override
     public void onGetDataFailure(String message) {
+
         Log.d("Status",message);
     }
 
