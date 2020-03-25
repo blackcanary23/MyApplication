@@ -21,7 +21,6 @@ public interface GetDataContract {
     interface Interactor{
 
         void initRetrofitCall();
-
     }
 
     interface onGetDataListener{

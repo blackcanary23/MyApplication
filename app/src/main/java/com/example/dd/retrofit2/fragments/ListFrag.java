@@ -30,6 +30,7 @@ public class ListFrag extends Fragment implements GetDataContract.View {
         return view;
     }
 
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
 
@@ -41,7 +42,6 @@ public class ListFrag extends Fragment implements GetDataContract.View {
         recyclerView = view.findViewById(R.id.list);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getActivity());
         recyclerView.setLayoutManager(layoutManager);
-
     }
 
 
@@ -50,7 +50,6 @@ public class ListFrag extends Fragment implements GetDataContract.View {
 
         RecyclerView.Adapter myAdapter = new DataAdapter(getActivity(), data);
         recyclerView.setAdapter(myAdapter);
-
     }
 
     @Override
@@ -58,10 +57,4 @@ public class ListFrag extends Fragment implements GetDataContract.View {
 
         Log.d("Status",message);
     }
-
 }
-
-
-
-
-

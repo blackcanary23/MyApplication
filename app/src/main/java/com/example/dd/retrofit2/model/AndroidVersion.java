@@ -32,5 +32,4 @@ public class AndroidVersion implements Serializable {
 
         return api;
     }
-
 }

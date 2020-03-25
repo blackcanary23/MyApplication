@@ -41,7 +41,6 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
 
         holder.itemView.setTag(android.get(position));
         holder.tv_name.setText(android.get(position).getName());
-
     }
 
     @Override
